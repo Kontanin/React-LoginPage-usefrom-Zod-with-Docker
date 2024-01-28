@@ -16,7 +16,7 @@ function Login(){
     register,
     formState: { errors },
     handleSubmit,
-    getValue
+
 
   } = useForm({ resolver: zodResolver(LoginSchema) });
 
@@ -29,25 +29,26 @@ function Login(){
       navigate('/home');
     }
   };
-console.log(getValue('ftname'),"test")
+
   return(
   <div className="h-screen flex items-center justify-center rounded-lg  ">
-    <div  className="bg-violet-950 rounded-lg w-96  text-zinc-50">
-    <h1 className="flex justify-center rounded-lg">login</h1>
+    <div  className="bg-violet-950 rounded-lg   text-zinc-50">
+    <h1 className="">login</h1>
       <div className="bg-stone-400 rounded-lg">
-        <form onSubmit={handleSubmit(onhandle)}   >
-            <div className="bg-stone-50 border text-black ">
+        <form onSubmit={handleSubmit(onhandle)}>
+            <div className="bg-stone-50 border text-black grid-cols-2">
+          
               <InputWithLabel label={"email"} 
               placeholder={"email"} 
               error={errors?.email}
-              form={register("email")}/>
+              form={register("email")}  />
 
 
               <InputWithLabel 
               label={"password"} 
               placeholder={"password"} 
               error={errors?.password}
-              form={register("password")}/>
+              form={register("password")} />
 
             </div>
 
