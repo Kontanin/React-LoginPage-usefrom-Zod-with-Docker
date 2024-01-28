@@ -36,7 +36,7 @@ function Login(){
     <h1 className="">login</h1>
       <div className="bg-stone-400 rounded-lg">
         <form onSubmit={handleSubmit(onhandle)}>
-            <div className="bg-stone-50 border text-black grid-cols-2">
+            <div className="bg-stone-50 border text-black">
           
               <InputWithLabel label={"email"} 
               placeholder={"email"} 
