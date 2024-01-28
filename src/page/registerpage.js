@@ -1,48 +1,48 @@
-import { Link,useNavigate } from "react-router-dom";
-
 import {useForm} from "react-hook-form"
-import doPostRequest from "../req/req";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {z } from "zod"
 import InputWithLabel from "../component/InputWithLabel";
 function Register(){
-  const navigate = useNavigate();
 
 const registerSchema=z.object({
-
-  ftname:z.string()
+  ftname:z.string().min(1)
 
 })
+
 const {
   register,
   formState: { errors },
   handleSubmit,
+  getValues
 } = useForm({ resolver: zodResolver(registerSchema) });
+
   const onhandle = (e) => {
     let payload=e
       console.log(payload)
-
+      console.log(getValues('ftname'),"getValues")
   };
+
+  const onhandle1 = (e) => {
+    let payload=e
+      console.log(payload)
+      console.log(getValues('ftname'),"getValues11111")
+  };
+
+  console.log(getValues('ftname'),"getValues")
+
+
   return( 
         <form onSubmit={handleSubmit(onhandle)}>  
 <InputWithLabel 
-label={"frname"}
+label={"ftname"}
 placeholder={"ftname"}
 error={errors?.ftname}
 from={register("ftname")}
 />
-
+<input type="button" />
+<button  type="button" className="content-center w-32 bg-purple-500 rounded-lg" onClick={onhandle1} >show</button>
             <button className="content-center w-32 bg-purple-500 rounded-lg">Submit</button>
-
         </form>
-        {/* <div className="flex content-center  justify-center  text-zinc-50">
-          <h6 className="mr-1 ">if you already have account please </h6>
-          <Link to="/" className="underline">Login</Link>
-        </div> */}
-
   )
-
 }
-
-
 export default Register;

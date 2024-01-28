@@ -15,7 +15,8 @@ function Login(){
   const {
     register,
     formState: { errors },
-    handleSubmit
+    handleSubmit,
+    getValue
 
   } = useForm({ resolver: zodResolver(LoginSchema) });
 
@@ -28,7 +29,7 @@ function Login(){
       navigate('/home');
     }
   };
-
+console.log(getValue('ftname'),"test")
   return(
   <div className="h-screen flex items-center justify-center rounded-lg  ">
     <div  className="bg-violet-950 rounded-lg w-96  text-zinc-50">
